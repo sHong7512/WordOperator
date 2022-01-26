@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/selectedText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.07"
+        android:autoSizeMinTextSize="7dp"
+        android:autoSizeTextType="uniform"
+        android:background="@drawable/basic_ripple"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:text="이름" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/nameRV"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/textLayout"
+        app:layout_constraintTop_toBottomOf="@id/selectedText" />
+
+    <LinearLayout
+        android:id="@+id/textLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.05">
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:autoSizeMinTextSize="7dp"
+            android:autoSizeTextType="uniform"
+            android:background="@drawable/basic_ripple"
+            android:gravity="center"
+            android:text="ㄱ" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:autoSizeMinTextSize="7dp"
+            android:autoSizeTextType="uniform"
+            android:background="@drawable/basic_ripple"
+            android:gravity="center"
+            android:text="ㄷ" />
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:autoSizeMinTextSize="7dp"
+            android:autoSizeTextType="uniform"
+            android:background="@drawable/basic_ripple"
+            android:gravity="center"
+            android:text="ㅁ" />
+
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:autoSizeMinTextSize="7dp"
+            android:autoSizeTextType="uniform"
+            android:background="@drawable/basic_ripple"
+            android:gravity="center"
+            android:text="ㅅ" />
+
+        <TextView
+            android:id="@+id/text5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:autoSizeMinTextSize="7dp"
+            android:autoSizeTextType="uniform"
+            android:background="@drawable/basic_ripple"
+            android:gravity="center"
+            android:text="ㅎ" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
