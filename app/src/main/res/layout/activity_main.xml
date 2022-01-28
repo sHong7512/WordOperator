@@ -15,7 +15,9 @@
         android:autoSizeTextType="uniform"
         android:background="@drawable/basic_ripple"
         app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/pretendard_black"
         android:gravity="center"
+        android:textColor="@color/black"
         android:text="이름" />
 
     <androidx.recyclerview.widget.RecyclerView
