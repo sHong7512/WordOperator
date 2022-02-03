@@ -3,10 +3,12 @@ package com.shong.wordoperator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MotionEvent
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shong.wordoperator.databinding.ActivityMainBinding
 
+// https://github.com/reddit/IndicatorFastScroll 라이브러리도 있음
 class MainActivity : AppCompatActivity() {
     val TAG = this::class.java.simpleName + "_sHong"
 
@@ -39,7 +41,9 @@ class MainActivity : AppCompatActivity() {
             "조조조",
             "핫핳핳",
             "가갸겨",
-            "라디오"
+            "라디오",
+            "놀래미",
+            "나진"
         )
         val sortedNameList = nameList.sorted()
         Log.d(TAG,"list -> ${sortedNameList}")
@@ -48,6 +52,69 @@ class MainActivity : AppCompatActivity() {
         binding.run {
             nameRV.adapter = adapter
             nameRV.layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
+
+            val yList = mutableListOf<Float>()
+            val strList = mutableListOf<String>()
+            val isPostedList = mutableListOf<Boolean>()
+            for(i in 0 until 5){
+                isPostedList.add(false)
+            }
+
+            fun posted(){
+                for(ip in isPostedList){
+                    if(!ip) return
+                }
+                yList.add(scrollText1.y)
+                yList.add(scrollText2.y)
+                yList.add(scrollText3.y)
+                yList.add(scrollText4.y)
+                yList.add(scrollText5.y)
+
+                strList.add(scrollText1.text.toString())
+                strList.add(scrollText2.text.toString())
+                strList.add(scrollText3.text.toString())
+                strList.add(scrollText4.text.toString())
+                strList.add(scrollText5.text.toString())
+
+                sideSearchBarLayout.setOnTouchListener { v, event ->
+                    val y = event?.y ?: return@setOnTouchListener true
+                    when (event?.action) {
+                        MotionEvent.ACTION_DOWN -> {
+                            for(i in 1 until yList.size){
+                                if(y < yList[i]){
+                                    onTextClick(strList[i - 1])
+                                    return@setOnTouchListener true
+                                }
+                            }
+                            onTextClick(strList[strList.size - 1])
+                        }
+                        MotionEvent.ACTION_MOVE -> {
+                            for(i in 1 until yList.size){
+                                if(y < yList[i]){
+                                    onTextClick(strList[i - 1])
+                                    return@setOnTouchListener true
+                                }
+                            }
+                            onTextClick(strList[strList.size - 1])
+                        }
+                        MotionEvent.ACTION_UP -> {
+                            for(i in 1 until yList.size){
+                                if(y < yList[i]){
+                                    onTextClick(strList[i - 1])
+                                    return@setOnTouchListener true
+                                }
+                            }
+                            onTextClick(strList[strList.size - 1])
+                        }
+                    }
+                    true
+                }
+            }
+            scrollText1.postDelayed(Runnable { isPostedList[0] = true; posted() }, 100L)
+            scrollText2.postDelayed(Runnable { isPostedList[1] = true; posted() }, 100L)
+            scrollText3.postDelayed(Runnable { isPostedList[2] = true; posted() }, 100L)
+            scrollText4.postDelayed(Runnable { isPostedList[3] = true; posted() }, 100L)
+            scrollText5.postDelayed(Runnable { isPostedList[4] = true; posted() }, 100L)
 
             text1.setOnClickListener { onTextClick(text1.text.toString()) }
             text2.setOnClickListener { onTextClick(text2.text.toString()) }
@@ -60,7 +127,8 @@ class MainActivity : AppCompatActivity() {
 
     fun onTextClick(str: String){
         val position = adapter.getPositionInitalChs(str)
-        binding.nameRV.smoothScrollToPosition(position)
+//        binding.nameRV.smoothScrollToPosition(position)
+        binding.nameRV.scrollToPosition(position)
         binding.selectedText.text = adapter.nameList[position]
         adapter.setSelectedPosition(position)
     }

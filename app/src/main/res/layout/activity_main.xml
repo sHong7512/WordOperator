@@ -10,22 +10,95 @@
         android:id="@+id/selectedText"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.07"
         android:autoSizeMinTextSize="7dp"
         android:autoSizeTextType="uniform"
         android:background="@drawable/basic_ripple"
-        app:layout_constraintTop_toTopOf="parent"
         android:fontFamily="@font/pretendard_black"
         android:gravity="center"
+        android:text="이름"
         android:textColor="@color/black"
-        android:text="이름" />
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/nameRV"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/textLayout"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/selectedText" />
+
+    <LinearLayout
+        android:id="@+id/sideSearchBarLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#ededed"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/nameRV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.7"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/nameRV"
+        app:layout_constraintWidth_percent="0.1">
+
+        <TextView
+            android:id="@+id/scrollText1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:autoSizeMaxTextSize="30dp"
+            android:autoSizeTextType="uniform"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="ㄱ" />
+
+        <TextView
+            android:id="@+id/scrollText2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:autoSizeMaxTextSize="30dp"
+            android:autoSizeTextType="uniform"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="ㄴ" />
+
+        <TextView
+            android:id="@+id/scrollText3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:autoSizeMaxTextSize="30dp"
+            android:autoSizeTextType="uniform"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="ㄷ" />
+
+        <TextView
+            android:id="@+id/scrollText4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:autoSizeMaxTextSize="30dp"
+            android:autoSizeTextType="uniform"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="ㅅ" />
+
+        <TextView
+            android:id="@+id/scrollText5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:autoSizeMaxTextSize="30dp"
+            android:autoSizeTextType="uniform"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="ㅎ" />
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/textLayout"
