@@ -1,7 +1,5 @@
 package com.shong.wordoperator
 
-import android.util.Log
-
 data class InitialStr(
     val index: Int,
     val initalWord: String

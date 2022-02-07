@@ -1,4 +1,4 @@
-package com.shong.wordoperator
+package com.shong.wordoperator.basic
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,12 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.shong.wordoperator.R
+import com.shong.wordoperator.WordOperator
 
-class NameAdapter internal constructor(
-    context: Context,
-    val nameList: List<String>
-) :
+class NameAdapter internal constructor(context: Context, val nameList: List<String>) :
     RecyclerView.Adapter<NameAdapter.ViewHolder>() {
+
     private val TAG = this::class.java.simpleName + "_sHong"
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
@@ -24,8 +24,7 @@ class NameAdapter internal constructor(
         val nameTextView: TextView = itemView.findViewById(R.id.nameText)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
-            : ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = inflater.inflate(R.layout.item_name, parent, false)
 
         return ViewHolder(itemView)

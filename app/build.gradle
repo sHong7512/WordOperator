@@ -43,4 +43,9 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // indicator-fast-scroll (reddit)
+    implementation 'com.reddit:indicator-fast-scroll:1.4.0'
+    // sampledata library
+    implementation 'com.thedeanda:lorem:2.1'
 }
